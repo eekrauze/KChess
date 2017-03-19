@@ -20,6 +20,17 @@ namespace KChess
             return 1;
         }
 
+        public static bool IsBlack(string squareName)
+        {
+            return GetSquareColor(squareName) == 1;
+        }
+
+
+        public static bool IsWhite(string squareName)
+        {
+            return GetSquareColor(squareName) == 0;
+        }
+
         private static int GetX(string squareName)
         {
             char x = squareName[0];
