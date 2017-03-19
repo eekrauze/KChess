@@ -1,39 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KChess
+﻿namespace KChess
 {
     public class Game
     {
         public static string Name = "KChess";
 
-        public static int GetSquareColor(string squareName)
+        public static int GetSquareColor(string coordinate)
         {
-            int x = GetX(squareName);
-            int y = GetY(squareName);
+            int x = GetX(coordinate);
+            int y = GetY(coordinate);
 
             if ((x + y) % 2 != 0) return 0;
 
             return 1;
         }
 
-        public static bool IsBlack(string squareName)
+        public static bool IsBlack(string coordinate)
         {
-            return GetSquareColor(squareName) == 1;
+            return GetSquareColor(coordinate) == 1;
         }
 
 
-        public static bool IsWhite(string squareName)
+        public static bool IsWhite(string coordinate)
         {
-            return GetSquareColor(squareName) == 0;
+            return GetSquareColor(coordinate) == 0;
         }
 
-        private static int GetX(string squareName)
+        private static int GetX(string coordinate)
         {
-            char x = squareName[0];
+            char x = coordinate[0];
 
             switch (x)
             {
@@ -50,9 +44,9 @@ namespace KChess
             return -1;
         }
 
-        private static int GetY(string squareName)
+        private static int GetY(string coordinate)
         {
-            int y = (int)Char.GetNumericValue(squareName[1]);
+            int y = (int) char.GetNumericValue(coordinate[1]);
             return y;
         }
     }
