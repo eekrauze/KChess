@@ -15,7 +15,7 @@ namespace KChess
             int x = GetX(squareName);
             int y = GetY(squareName);
 
-            if (x % 2 == 0 && y % 2 != 0 || x % 2 != 0 && y % 2 == 0) return 0;
+            if ((x + y) % 2 != 0) return 0;
 
             return 1;
         }
