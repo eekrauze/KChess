@@ -27,34 +27,18 @@
 
         private static int GetX(string coordinate)
         {
-            char x = coordinate[0];
+            char x = coordinate.ToLower()[0];
 
             switch (x)
             {
-                case 'a':
-                case 'A':
-                    return 1;
-                case 'b':
-                case 'B':
-                    return 2;
-                case 'c':
-                case 'C':
-                    return 3;
-                case 'd':
-                case 'D':
-                    return 4;
-                case 'e':
-                case 'E':
-                    return 5;
-                case 'f':
-                case 'F':
-                    return 6;
-                case 'g':
-                case 'G':
-                    return 7;
-                case 'h':
-                case 'H':
-                    return 8;
+                case 'a':return 1;
+                case 'b':return 2;
+                case 'c':return 3;
+                case 'd':return 4;
+                case 'e':return 5;
+                case 'f':return 6;
+                case 'g':return 7;
+                case 'h':return 8;
             }
 
             return -1;
