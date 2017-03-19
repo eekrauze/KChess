@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KChess.Console", "KChess.Co
 		{FABF3B53-0F2A-4782-A504-60BA7054FD8E} = {FABF3B53-0F2A-4782-A504-60BA7054FD8E}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KChess.Tests", "KChess.Tests\KChess.Tests.csproj", "{5EA08E93-6F65-4B5C-909E-7BB86D639029}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{C0C0A338-B287-430D-80F2-17F40D79D1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0C0A338-B287-430D-80F2-17F40D79D1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0C0A338-B287-430D-80F2-17F40D79D1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA08E93-6F65-4B5C-909E-7BB86D639029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA08E93-6F65-4B5C-909E-7BB86D639029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA08E93-6F65-4B5C-909E-7BB86D639029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA08E93-6F65-4B5C-909E-7BB86D639029}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
