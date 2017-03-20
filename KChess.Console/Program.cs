@@ -1,11 +1,21 @@
-﻿namespace KChess.Console
+﻿using System;
+
+namespace KChess.Console
 {
     class Program
     {
         static void Main(string[] args)
         {
             System.Console.WriteLine(Game.Name);
-            System.Console.ReadKey();
+
+            try
+            {
+                System.Console.ReadKey();
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                System.Console.WriteLine();
+            }
         }
     }
 }

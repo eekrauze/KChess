@@ -1,4 +1,6 @@
-﻿namespace KChess
+﻿using System;
+
+namespace KChess
 {
     public class Game
     {
@@ -6,6 +8,8 @@
 
         public static int GetSquareColor(string coordinate)
         {
+            if (coordinate.Length > 2) throw new ArgumentOutOfRangeException();
+          
             int x = GetX(coordinate);
             int y = GetY(coordinate);
 
@@ -41,12 +45,15 @@
                 case 'h':return 8;
             }
 
-            return -1;
+            throw new ArgumentOutOfRangeException();
         }
 
         private static int GetY(string coordinate)
         {
             int y = (int) char.GetNumericValue(coordinate[1]);
+            
+            if (y > 8) throw new ArgumentOutOfRangeException();
+
             return y;
         }
     }
