@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KChess.Pieces
+namespace KChess.Enums
 {
     public enum Color
     {

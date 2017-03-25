@@ -1,60 +1,82 @@
-﻿using System;
+﻿using KChess.Enums;
+using System;
 
 namespace KChess
 {
     public class Game
     {
-        public static string Name = "KChess";
+        private const int BOARD_SIZE = 8;
 
-        public static int GetSquareColor(string coordinate)
+        private Square[][] board;
+
+        public Game()
         {
-            if (coordinate.Length > 2) throw new ArgumentOutOfRangeException();
-          
-            int x = GetX(coordinate);
-            int y = GetY(coordinate);
-
-            if ((x + y) % 2 != 0) return 0;
-
-            return 1;
+            this.board = CreateBoard();
         }
 
-        public static bool IsBlack(string coordinate)
+        public Square GetSquare(string coordinate)
         {
-            return GetSquareColor(coordinate) == 1;
+            if (string.IsNullOrEmpty(coordinate) || coordinate.Length > 2)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            int file = GetFile(coordinate);
+            int rank = GetRank(coordinate);
+
+            return board[file][rank];
         }
 
-
-        public static bool IsWhite(string coordinate)
+        private Square[][] CreateBoard()
         {
-            return GetSquareColor(coordinate) == 0;
+            Square[][] board = new Square[BOARD_SIZE][];
+
+            for (int i = 0; i < BOARD_SIZE; i += 1)
+            {
+                Square[] rank = new Square[BOARD_SIZE];
+                for (int j = 0; j < BOARD_SIZE; j += 1)
+                {
+                    rank[j] = new Square(GetSquareColor(i, j));
+                }
+                board[i] = rank;
+            }
+
+            return board;
         }
 
-        private static int GetX(string coordinate)
+        private static Color GetSquareColor(int i, int j)
+        {
+            if ((i + j) % 2 != 0) return Color.White;
+
+            return Color.Black;
+        }
+
+        private static int GetFile(string coordinate)
         {
             char x = coordinate.ToLower()[0];
 
             switch (x)
             {
-                case 'a':return 1;
-                case 'b':return 2;
-                case 'c':return 3;
-                case 'd':return 4;
-                case 'e':return 5;
-                case 'f':return 6;
-                case 'g':return 7;
-                case 'h':return 8;
+                case 'a':return 0;
+                case 'b':return 1;
+                case 'c':return 2;
+                case 'd':return 3;
+                case 'e':return 4;
+                case 'f':return 5;
+                case 'g':return 6;
+                case 'h':return 7;
             }
 
             throw new ArgumentOutOfRangeException();
         }
 
-        private static int GetY(string coordinate)
+        private static int GetRank(string coordinate)
         {
             int y = (int) char.GetNumericValue(coordinate[1]);
             
-            if (y > 8) throw new ArgumentOutOfRangeException();
+            if (y > BOARD_SIZE) throw new ArgumentOutOfRangeException();
 
-            return y;
+            return y - 1;
         }
     }
 }

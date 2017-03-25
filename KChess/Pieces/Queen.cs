@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using KChess.Enums;
 
 namespace KChess.Pieces
 {
-    class Queen
+    class Queen : Piece
     {
+        public Queen(Color color) : base(color)
+        {
+        }
     }
 }

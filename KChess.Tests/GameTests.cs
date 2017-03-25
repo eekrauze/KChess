@@ -7,83 +7,65 @@ namespace KChess.Tests
     public class GameTests
     {
         [TestMethod]
-        public void TestGetSquareColor()
+        public void TestSquareColor()
         {
-            Assert.AreEqual(1, Game.GetSquareColor("a1"));
-            Assert.AreEqual(1, Game.GetSquareColor("d4"));
-            Assert.AreEqual(1, Game.GetSquareColor("f6"));
-            Assert.AreEqual(0, Game.GetSquareColor("b7"));
-            Assert.AreEqual(0, Game.GetSquareColor("h3"));
-            Assert.AreEqual(0, Game.GetSquareColor("c4"));
+            var game = new Game();
 
-            Assert.AreEqual(1, Game.GetSquareColor("A1"));
-            Assert.AreEqual(1, Game.GetSquareColor("D4"));
-            Assert.AreEqual(1, Game.GetSquareColor("F6"));
-            Assert.AreEqual(0, Game.GetSquareColor("B7"));
-            Assert.AreEqual(0, Game.GetSquareColor("H3"));
-            Assert.AreEqual(0, Game.GetSquareColor("C4"));
-        }
+            Assert.AreEqual(true, game.GetSquare("a1").IsBlack);
+            Assert.AreEqual(true, game.GetSquare("d4").IsBlack);
+            Assert.AreEqual(true, game.GetSquare("f6").IsBlack);
 
-        [TestMethod]
-        public void TestIsBlack()
-        {
-            Assert.AreEqual(true, Game.IsBlack("a1"));
-            Assert.AreEqual(false, Game.IsBlack("a8"));
+            Assert.AreEqual(true, game.GetSquare("b7").IsWhite);
+            Assert.AreEqual(true, game.GetSquare("h3").IsWhite);
+            Assert.AreEqual(true, game.GetSquare("c4").IsWhite);
 
-            Assert.AreEqual(false, Game.IsBlack("B1"));
-            Assert.AreEqual(true, Game.IsBlack("B8"));
-        }
+            Assert.AreEqual(true, game.GetSquare("A1").IsBlack);
+            Assert.AreEqual(true, game.GetSquare("D4").IsBlack);
+            Assert.AreEqual(true, game.GetSquare("F6").IsBlack);
 
-        [TestMethod]
-        public void TestIsWhite()
-        {
-            Assert.AreEqual(true, Game.IsWhite("d1"));
-            Assert.AreEqual(false, Game.IsWhite("d8"));
-
-            Assert.AreEqual(true, Game.IsWhite("E2"));
-            Assert.AreEqual(false, Game.IsWhite("E7"));
+            Assert.AreEqual(true, game.GetSquare("B7").IsWhite);
+            Assert.AreEqual(true, game.GetSquare("H3").IsWhite);
+            Assert.AreEqual(true, game.GetSquare("C4").IsWhite);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestGetSquareColorForInvalidCoordinate1()
+        public void TestGetSquareForInvalidCoordinate1()
         {
-            Game.GetSquareColor("x1");
+            var game = new Game();
+            game.GetSquare("x-1");
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestGetSquareColorForInvalidCoordinate2()
+        public void TestGetSquareForInvalidCoordinate2()
         {
-            Game.GetSquareColor("a9");
+            var game = new Game();
+            game.GetSquare("x1");
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestGetSquareColorForInvalidCoordinate3()
+        public void TestGetSquareForInvalidCoordinate3()
         {
-            Game.GetSquareColor("x9");
+            var game = new Game();
+            game.GetSquare("a9");
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestGetSquareColorForInvalidCoordinate4()
+        public void TestGetSquareForInvalidCoordinate4()
         {
-            Game.GetSquareColor("x-1");
+            var game = new Game();
+            game.GetSquare(null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestIsWhiterForInvalidCoordinate()
+        public void TestGetSquareForInvalidCoordinate5()
         {
-            Game.IsWhite("x1");
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestIsBlackForInvalidCoordinate()
-        {
-            Game.IsBlack("a9");
+            var game = new Game();
+            game.GetSquare("");
         }
     }
 }

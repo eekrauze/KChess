@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using KChess.Enums;
 
 namespace KChess.Pieces
 {
-    class Rook
+    class Rook : Piece
     {
+        public Rook(Color color) : base(color)
+        {
+        }
     }
 }

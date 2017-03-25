@@ -6,8 +6,6 @@ namespace KChess.Console
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine(Game.Name);
-            System.Console.ReadKey();
         }
     }
 }
